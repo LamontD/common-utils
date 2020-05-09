@@ -1,2 +1,2 @@
-/Users/lamontdozierjr/code/lahmans-common/src/main/java/com/slp/lahmans/common/jackson/JacksonMapper.java
-/Users/lamontdozierjr/code/lahmans-common/src/main/java/com/slp/lahmans/common/model/TransportObject.java
+/Users/lamontdozierjr/code/common-utils/src/main/java/com/lamontd/utils/jackson/JacksonMapper.java
+/Users/lamontdozierjr/code/common-utils/src/main/java/com/lamontd/utils/model/MappedTransportObject.java

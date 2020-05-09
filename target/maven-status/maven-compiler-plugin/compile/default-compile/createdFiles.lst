@@ -1,2 +1,2 @@
-com/slp/lahmans/common/jackson/JacksonMapper.class
-com/slp/lahmans/common/model/TransportObject.class
+com/lamontd/utils/model/MappedTransportObject.class
+com/lamontd/utils/jackson/JacksonMapper.class
