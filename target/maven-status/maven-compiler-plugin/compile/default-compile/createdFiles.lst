@@ -1,3 +1,5 @@
+com/lamontd/utils/transport/TransportTransaction$Type.class
 com/lamontd/utils/transport/MappedTransportObjectConverter.class
-com/lamontd/utils/transport/MappedTransportObject.class
 com/lamontd/utils/jackson/JacksonMapper.class
+com/lamontd/utils/transport/TransportTransaction.class
+com/lamontd/utils/transport/MappedTransportObject.class
