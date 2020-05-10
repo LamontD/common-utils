@@ -1,2 +1,3 @@
-com/lamontd/utils/model/MappedTransportObject.class
+com/lamontd/utils/transport/MappedTransportObjectConverter.class
+com/lamontd/utils/transport/MappedTransportObject.class
 com/lamontd/utils/jackson/JacksonMapper.class
