@@ -12,21 +12,22 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
-  */
+ */
 package com.lamontd.utils.transport;
 
-import com.lamontd.utils.transport.MappedTransportObject;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Base class for object converters for transport objects that will be used to populate objects. 
+ * Base class for object converters for transport objects that will be used to
+ * populate objects.
  * <p>
- * In order to define a new converter from the TransportObject to an external types, extend this
- * class for the type T that will be a Neo4J entity (not enforced) and register the class as a @Service. 
- * The appropriate handlers will autowire things for you beyond that.
- * 
+ * In order to define a new converter from the TransportObject to an external
+ * types, extend this class for the type T that will be a Neo4J entity (not
+ * enforced) and register the class as a @Service. The appropriate handlers will
+ * autowire things for you beyond that.
+ *
  * @author lamontdozierjr
  */
 public abstract class MappedTransportObjectConverter<T> {
@@ -47,10 +48,19 @@ public abstract class MappedTransportObjectConverter<T> {
                 && !transportObject.getAttributes().isEmpty();
     }
 
-    public void convertAndStore(MappedTransportObject transportObject) {
-        T conversionObject = convert(transportObject);
+    public void convertAndStore(MappedTransportObject transportObject) throws TransportConversionException, StorageException {
+        T conversionObject = null;
+        try {
+            conversionObject = convert(transportObject);
+        } catch (Throwable t) {
+            throw new TransportConversionException("Error converting transport object", t);
+        }
         if (conversionObject != null) {
-            store(conversionObject);
+            try {
+                store(conversionObject);
+            } catch (Throwable t) {
+                throw new StorageException("Failed to store converted object", t);
+            }
         }
     }
 
